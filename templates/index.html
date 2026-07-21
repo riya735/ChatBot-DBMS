@@ -1,11 +1,44 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-    <title>Student Chatbot</title>
+    <title>Student Database Chatbot</title>
 </head>
+
 <body>
 
 <h1>Student Database Chatbot</h1>
 
+<form method="POST">
+
+    <input
+        type="text"
+        name="question"
+        placeholder="Ask a question"
+        required>
+
+    <button type="submit">
+        Send
+    </button>
+
+</form>
+
+{% if question %}
+
+<h3>Your Question</h3>
+
+<p>{{ question }}</p>
+
+{% endif %}
+
+{% if answer %}
+
+<h3>Bot Response</h3>
+
+<p>{{ answer }}</p>
+
+{% endif %}
+
 </body>
+
 </html>
