@@ -1,10 +1,10 @@
 from flask import Flask, render_template, request
+from main import cursor
 
 app = Flask(__name__)
 
 @app.route("/", methods=["GET", "POST"])
 def home():
-    print("Request Method:", request.method)
 
     question = ""
     answer = ""
@@ -13,8 +13,8 @@ def home():
 
         question = request.form["question"]
 
-        # For now, pretend this is the chatbot answer
-        answer = "You asked: " + question
+        cursor.execute("SELECT * FROM Student")
+        answer = cursor.fetchall()
 
     return render_template(
         "index.html",
@@ -24,3 +24,4 @@ def home():
 
 if __name__ == "__main__":
     app.run(debug=True)
+
