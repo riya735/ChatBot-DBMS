@@ -8,6 +8,3 @@ conn=mysql.connector.connect(
 )
 
 cursor = conn.cursor()
-
-cursor.execute("SELECT * FROM Student")
-print(cursor.fetchall())

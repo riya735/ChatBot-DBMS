@@ -46,4 +46,10 @@ Question:
         ]
     )
 
-    return response["message"]["content"]
+    sql = response["message"]["content"]
+
+    sql = sql.replace("```sql", "")
+    sql = sql.replace("```", "")
+
+    return sql.strip()
+  
